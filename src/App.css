@@ -1,38 +1,162 @@
-.App {
+.all-tasks{
+  margin: 2rem;
+}
+.addtask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px; 
+  border: 2px solid #333;
+  border-radius: 10px; 
+  background-color: #f8f8f8;
+  padding: 1rem;
+  cursor: pointer; 
+  transition: 1s ease; 
+}
+
+.addtask h2 {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  transition: 1s ease; 
+}
+.addtask h2:hover {
+  font-size: 16px;
+  color: #1565dc;
+  text-align: center;
+  margin: 0;
+}
+
+.addtask:hover {
+  
+  border: 2px solid #1565dc; /* Add a solid border */
+}
+
+.alltasktxt{
+  font-size: 3rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 2ecound */
+.all-tasks {
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+ 
+}
+
+.task {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px; /* Add padding inside the task card */
+  margin: 10px 0; /* Space between tasks */
+  width: 300px; /* Fixed width for the task card */
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text within task */
+}
+
+.task h3 {
+  margin: 0 0 10px 0; /* Margin below the title */
+  font-size: 1.5rem; /* Font size for the title */
+  color: #333; /* Dark gray color for the title */
+}
+
+.task p {
+  margin: 0 0 10px 0; /* Margin below the due date */
+  font-size: 1rem; /* Font size for the due date */
+  color: #666; /* Medium gray color for the due date */
+}
+
+.task input[type="checkbox"] {
+  margin: 10px 0; /* Space above and below the checkbox */
+  transform: scale(1.5); /* Larger checkbox for better visibility */
+}
+
+.task button {
+  margin: 5px; /* Space around buttons */
+  padding: 8px 12px; /* Padding inside buttons */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Round button corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.edit-btn {
+  background-color: #007bff; /* Blue background for edit button */
+  color: white; /* White text color */
+}
+
+.edit-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.delete-btn {
+  background-color: #dc3545; /* Red background for delete button */
+  color: white; /* White text color */
+}
+
+.delete-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+
+/* TaskDetails.css */
+.task-details {
+  max-width: 600px; /* Limit the width of the task details */
+  margin: 20px auto; /* Center the component */
+  padding: 20px; /* Add padding for space */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.task-details h2 {
+  text-align: center; /* Center the title */
+  color: #333; /* Dark text color */
+}
+
+.task-details p {
+  font-size: 16px; /* Slightly larger font for readability */
+  margin: 10px 0; /* Space between paragraphs */
+}
+
+.task-details button {
+  display: block; /* Center button */
+  margin: 20px auto; /* Center margin */
+  padding: 10px 15px; /* Padding inside the button */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  font-size: 16px; /* Button text size */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.task-details button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.details-btn {
+  background-color: #007bff; /* Bootstrap primary color */
   color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }

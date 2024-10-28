@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from "./nav";
+import Home from "./home";
+import TaskForm from "./TaskForm"; 
+import TaskDetails from "./TaskDetails"; 
+import EditTask from "./EditTask"; 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [tasks, setTasks] = useState([]);
+
+    const handleAddTask = (newTask) => {
+        setTasks([...tasks, { ...newTask, id: Date.now(), completed: false }]); 
+    };
+
+    const updateTask = (updatedTask) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === updatedTask.id ? updatedTask : task
+            )
+        );
+    };
+
+    const handleDeleteTask = (id) => {
+        setTasks(tasks.filter(task => task.id !== id)); 
+    };
+
+    const toggleTaskCompletion = (id) => {
+        setTasks(tasks.map(task =>
+            task.id === id ? { ...task, completed: !task.completed } : task
+        )); 
+    };
+
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={
+                    <Home tasks={tasks} onDeleteTask={handleDeleteTask} onToggleCompletion={toggleTaskCompletion} />
+                } />
+                <Route path="/add-task" element={<TaskForm onAddTask={handleAddTask} />} />
+                <Route path="/task-details/:id" element={<TaskDetails tasks={tasks} />} />
+                <Route path="/edit-task/:id" element={<EditTask tasks={tasks} updateTask={updateTask} />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;

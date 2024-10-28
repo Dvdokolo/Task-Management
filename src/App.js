@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./nav";
 import Home from "./home";
@@ -8,7 +8,15 @@ import EditTask from "./EditTask";
 import './App.css';
 
 const App = () => {
-    const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
+});
+
+     // Load tasks from localStorage when the app initializes
+     useEffect(() => {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
     const handleAddTask = (newTask) => {
         setTasks([...tasks, { ...newTask, id: Date.now(), completed: false }]); 
@@ -37,7 +45,7 @@ const App = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={
-                    <Home tasks={tasks} onDeleteTask={handleDeleteTask} onToggleCompletion={toggleTaskCompletion} />
+                    <Home tasks={tasks}   onDeleteTask={handleDeleteTask} onToggleCompletion={toggleTaskCompletion} />
                 } />
                 <Route path="/add-task" element={<TaskForm onAddTask={handleAddTask} />} />
                 <Route path="/task-details/:id" element={<TaskDetails tasks={tasks} />} />

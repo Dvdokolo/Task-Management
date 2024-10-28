@@ -1,0 +1,73 @@
+1. App.js
+Purpose:
+
+Acts as the main entry point of the application.
+Manages the routing and state of tasks.
+Holds the list of tasks in its state (tasks) and passes necessary functions and data to other components.
+Key Features:
+
+Routing: Uses react-router-dom to define routes for different parts of the application (Home, TaskForm, TaskDetails, and EditTask).
+State Management: Contains task management functions:
+handleAddTask - Adds a new task to the list.
+updateTask - Updates an existing task in the list.
+handleDeleteTask - Removes a task from the list.
+toggleTaskCompletion - Toggles the completed status of a task.
+2. Home.js
+Purpose:
+
+Serves as the main dashboard displaying all tasks.
+Allows users to see the list of tasks, edit them, delete them, or mark them as completed.
+Key Features:
+
+Task List Display: Displays a list of all tasks with details like title, due date, and completion status.
+Buttons: Provides buttons to:
+Edit a task (navigates to EditTask).
+Delete a task (removes it from the list).
+View task details (navigates to TaskDetails).
+Add a new task (navigates to TaskForm).
+3. TaskForm.js
+Purpose:
+
+Provides a form for adding new tasks.
+Handles user input for creating tasks, including title, description, category, due date, and priority.
+Key Features:
+
+Form Inputs: Allows users to enter details for a new task.
+Submission: Calls handleAddTask (from App.js) to add the new task to the list.
+Redirection: After adding a task, the user is redirected back to the Home page.
+4. TaskDetails.js
+Purpose:
+
+Displays detailed information about a specific task.
+Provides an overview of all task properties like description, category, due date, priority, and completion status.
+Key Features:
+
+Task Details Display: Shows detailed information for the task selected by the user.
+Cancel Button: Provides a button to navigate back to the Home page.
+5. EditTask.js
+Purpose:
+
+Allows users to edit the details of an existing task.
+Handles changes to properties such as the title, description, category, due date, and priority.
+Key Features:
+
+Form Inputs: Pre-fills the form with existing task data to allow users to edit it.
+Submission: Calls updateTask (from App.js) to save changes to the task.
+Redirection: After saving, the user is redirected back to the Home page.
+6. Navbar.js
+Purpose:
+
+Provides navigation elements for your application (if included).
+May include links to different parts of the app, such as "Home," "Add Task," or other pages.
+Key Features:
+
+Navigation: Helps users navigate easily between different routes.
+General Flow:
+The application starts on the Home page, displaying a list of tasks.
+From Home, users can:
+Add a Task: Click "Add Task," which opens TaskForm to add a new task.
+View Task Details: Click on a task, which navigates to TaskDetails to see more information.
+Edit a Task: Click the "Edit" button on a task, which opens EditTask for updating.
+Delete a Task: Click the "Delete" button to remove a task.
+Toggle Completion: Use the checkbox to mark tasks as completed or not.
+This structure creates a seamless experience for managing tasks, allowing users to add, edit, view details, delete, and toggle completion for tasks.
